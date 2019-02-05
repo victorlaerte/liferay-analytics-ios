@@ -12,21 +12,18 @@
  * details.
  */
 
+import Foundation
+
 /**
-- Author: Allan Melo
-*/
-internal class AnalyticsEvents: Codable {
+ - Author: Marcelo Mello
+ */
+internal class URLUtil {
     
-	init(dataSourceId: String, userId: String, build: (AnalyticsEvents) -> Void) {
-        self.dataSourceId = dataSourceId
-		self.userId = userId
-
-        build(self)
+    static func isValidUrl(value: String) -> Bool {
+        if value.hasPrefix("http://") || value.hasPrefix("https://") {
+            return true
+        }
+        
+        return false
     }
-
-     let dataSourceId: String
-     var context = [String: String]()
-     var events = [Event]()
-     var protocolVersion: String?
-     let userId: String
 }
