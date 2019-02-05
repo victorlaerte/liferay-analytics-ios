@@ -19,8 +19,8 @@ import Foundation
 */
 internal class IdentityContext: Codable {
 
-	init(analyticsKey: String, build: ((IdentityContext) -> ())? = nil) {
-		self.analyticsKey = analyticsKey
+	init(dataSourceId: String, build: ((IdentityContext) -> ())? = nil) {
+		self.dataSourceId = dataSourceId
 		self.userId = IdentityContext.createUserId()
 		
 		build?(self)
@@ -33,7 +33,7 @@ internal class IdentityContext: Codable {
 		return String(uuid[...lastIndex])
 	}
 
-	let analyticsKey: String
+	let dataSourceId: String
 	var identity: Identity?
 	var language: String?
 	var platform: String?

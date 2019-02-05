@@ -21,9 +21,9 @@ import XCTest
 class FlushProcessTest: XCTestCase {
 	
 	override func setUp() {
-		Analytics.sharedInstance = nil
+		Analytics.instance = nil
 		
-		try! Analytics.configure(analyticsKey: "AnalyticsKey")
+		try! Analytics.init()
 		let analytics = try! Analytics.getInstance()
 		
 		flushProcess = analytics.flushProcess
