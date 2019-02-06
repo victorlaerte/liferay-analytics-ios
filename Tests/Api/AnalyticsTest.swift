@@ -37,7 +37,7 @@ class AnalyticsTest: XCTestCase {
 			try Analytics.init()
 			let instance = try Analytics.getInstance()
 			
-			Analytics.setIdentity(email: "email@liferay.com", name: "Liferya")
+			Analytics.setIdentity(email: "email@liferay.com", name: "Liferay")
 			var userId = instance.userDAO.getUserId() ?? ""
 			XCTAssertFalse(userId.isEmpty)
 			
