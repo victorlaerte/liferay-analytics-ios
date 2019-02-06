@@ -3,9 +3,9 @@
 <plist version="1.0">
 	<dict>
 		<key>com.liferay.analytics.DataSourceId</key>
-		<string>DataSourceIdSampleIOS</string>
+		<string></string>
 		
 		<key>com.liferay.analytics.EndpointUrl</key>
-		<string>http://192.168.108.90:8085</string>
+		<string></string>
 	</dict>
 </plist>
