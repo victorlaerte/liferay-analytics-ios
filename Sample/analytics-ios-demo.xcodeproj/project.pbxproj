@@ -14,7 +14,6 @@
 		4AAEA25B205B024400C04AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AAEA259205B024400C04AD7 /* Main.storyboard */; };
 		4AAEA25D205B024400C04AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AAEA25C205B024400C04AD7 /* Assets.xcassets */; };
 		4AAEA260205B024400C04AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AAEA25E205B024400C04AD7 /* LaunchScreen.storyboard */; };
-		B2A8F065220337FD003DF56F /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2A8F064220337FD003DF56F /* settings.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		5F0756716CD96B3979F31971 /* Pods_analytics_ios_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_analytics_ios_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		697B1028BB514670F3F3B22A /* Pods-analytics-client-ios-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-analytics-client-ios-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-analytics-client-ios-demo/Pods-analytics-client-ios-demo.debug.xcconfig"; sourceTree = "<group>"; };
 		A476D6AEC3147B9DF4F8A2C4 /* Pods-analytics-ios-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-analytics-ios-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-analytics-ios-demo/Pods-analytics-ios-demo.debug.xcconfig"; sourceTree = "<group>"; };
-		B2A8F064220337FD003DF56F /* settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		E39C5F953C52CACCFC93309C /* Pods-analytics-client-ios-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-analytics-client-ios-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-analytics-client-ios-demo/Pods-analytics-client-ios-demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,25 +85,16 @@
 		4AAEA254205B024400C04AD7 /* analytics-ios-demo */ = {
 			isa = PBXGroup;
 			children = (
-				B2A8F063220337CD003DF56F /* Resources */,
 				4AAEA255205B024400C04AD7 /* AppDelegate.swift */,
 				4A30A61F209DCD2000178B85 /* MainViewController.swift */,
 				4AAEA257205B024400C04AD7 /* FormsViewController.swift */,
 				4AAEA259205B024400C04AD7 /* Main.storyboard */,
 				4AAEA25C205B024400C04AD7 /* Assets.xcassets */,
 				4AAEA25E205B024400C04AD7 /* LaunchScreen.storyboard */,
-				4AAEA261205B024400C04AD7 /* Info.plist */,
 				4A8E8230207FACE500C5D0BA /* analytics-ios-demo-Bridging-Header.h */,
+				4AAEA261205B024400C04AD7 /* Info.plist */,
 			);
 			path = "analytics-ios-demo";
-			sourceTree = "<group>";
-		};
-		B2A8F063220337CD003DF56F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				B2A8F064220337FD003DF56F /* settings.plist */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,7 +159,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AAEA260205B024400C04AD7 /* LaunchScreen.storyboard in Resources */,
-				B2A8F065220337FD003DF56F /* settings.plist in Resources */,
 				4AAEA25D205B024400C04AD7 /* Assets.xcassets in Resources */,
 				4AAEA25B205B024400C04AD7 /* Main.storyboard in Resources */,
 			);
