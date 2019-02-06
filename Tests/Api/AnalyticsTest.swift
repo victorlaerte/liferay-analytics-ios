@@ -29,7 +29,7 @@ class AnalyticsTest: XCTestCase {
 	}
 	
 	override func tearDown() {
-        Analytics.instance = nil
+		Analytics.instance = nil
 	}
 	
 	func testClearSession() {
