@@ -24,12 +24,12 @@ public class Analytics {
 	
 	private init(endpointURL: String, dataSourceId: String,
                  fileStorage: FileStorage, flushInterval: Int) {
-        
-        self.endpointURL = endpointURL
-        self.dataSourceId = dataSourceId
+
+		self.endpointURL = endpointURL
+		self.dataSourceId = dataSourceId
         
 		self.userDAO = UserDAO(fileStorage: fileStorage)
-        self.flushProcess = FlushProcess(endpointURL: endpointURL, fileStorage: fileStorage, flushInterval: flushInterval)
+		self.flushProcess = FlushProcess(endpointURL: endpointURL, fileStorage: fileStorage, flushInterval: flushInterval)
 	}
 	
 	/**
@@ -47,7 +47,7 @@ public class Analytics {
 	
 	/**
 		Need to call method to initialize the library
-	
+
 		- Throws: `AnalyticsError.analyticsAlreadyInitialized` if the Analytics
 		library is already initialized.
 		- Throws: `AnalyticsError.dataSourceIdNullOrEmpty` if com.liferay.analytics.DataSourceId
@@ -62,32 +62,32 @@ public class Analytics {
 			throw AnalyticsError.analyticsAlreadyInitialized
 		}
         
-        let fileStorage = try FileStorage()
-        
-        let bundle = Bundle(for: self)
-        var settings: [String: String]?
-        
-        if let path = bundle.path(forResource: "Info", ofType:"plist") {
-            settings = NSDictionary(contentsOfFile: path) as? [String: String]
-        }
-		
-		guard let dataSourceId = settings?["com.liferay.analytics.DataSourceId"] else {
-            throw AnalyticsError.dataSourceIdNullOrEmpty
-        }
-		
-        var endpointURL: String = ""
-        
-        if let stringURL = settings?["com.liferay.analytics.EndpointUrl"] {
-            if (!URLUtil.isValidUrl(value: stringURL)) {
-                throw AnalyticsError.invalidEndpointURL
-            }
+		let fileStorage = try FileStorage()
 
-            endpointURL = stringURL
-        }
-        
-        if (flushInterval <= 0) {
-            throw AnalyticsError.invalidFlushIntervalValue
-        }
+		let bundle = Bundle(for: self)
+		var settings: [String: String]?
+
+		if let path = bundle.path(forResource: "Info", ofType:"plist") {
+			settings = NSDictionary(contentsOfFile: path) as? [String: String]
+		}
+
+		guard let dataSourceId = settings?["com.liferay.analytics.DataSourceId"] else {
+			throw AnalyticsError.dataSourceIdNullOrEmpty
+		}
+
+		var endpointURL: String = ""
+
+		if let stringURL = settings?["com.liferay.analytics.EndpointUrl"] {
+			if (!URLUtil.isValidUrl(value: stringURL)) {
+				throw AnalyticsError.invalidEndpointURL
+			}
+
+			endpointURL = stringURL
+		}
+
+		if (flushInterval <= 0) {
+			throw AnalyticsError.invalidFlushIntervalValue
+		}
         
 		instance = Analytics(endpointURL: endpointURL, dataSourceId: dataSourceId,
                                    fileStorage: fileStorage, flushInterval: flushInterval)
@@ -101,8 +101,8 @@ public class Analytics {
 		if the Analytics library is not initialized.
 	*/
 	public class func setIdentity(email: String, name: String = "") {
-        let instance = try! Analytics.getInstance()
-        let identityContext = IdentityContext(dataSourceId: instance.dataSourceId)
+		let instance = try! Analytics.getInstance()
+		let identityContext = IdentityContext(dataSourceId: instance.dataSourceId)
 		
 		let identity = Identity(name: name, email: email)
 		identityContext.identity = identity
@@ -126,9 +126,9 @@ public class Analytics {
 	}
 	
 	func getDefaultIdentityContext() -> IdentityContext {
-        let instance = try! Analytics.getInstance()
-        
-        return IdentityContext(dataSourceId: instance.dataSourceId) {
+		let instance = try! Analytics.getInstance()
+
+		return IdentityContext(dataSourceId: instance.dataSourceId) {
 			$0.platform = "iOS"
 			
 			if let language = Locale.preferredLanguages.first {
@@ -157,8 +157,8 @@ public class Analytics {
 	
 	internal static var instance: Analytics?
 	
-    internal let endpointURL: String
-    internal let dataSourceId: String
+	internal let endpointURL: String
+	internal let dataSourceId: String
 	internal let flushProcess: FlushProcess
 	internal let userDAO: UserDAO
 }

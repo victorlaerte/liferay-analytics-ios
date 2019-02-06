@@ -19,12 +19,12 @@ import Foundation
 */
 class IdentityClient {
 	
-    func send(endpointURL: String, identityContext: IdentityContext) throws {
-        let endpointURL = endpointURL + "/identity"
-        
-        guard let url = URL(string: endpointURL) else {
-            throw HttpError.invalidUrl
-        }
+	func send(endpointURL: String, identityContext: IdentityContext) throws {
+		let endpointURL = endpointURL + "/identity"
+
+		guard let url = URL(string: endpointURL) else {
+			throw HttpError.invalidUrl
+		}
         
 		let encoder = JSONEncoder()
 		let identityContextData = try encoder.encode(identityContext)
@@ -35,5 +35,4 @@ class IdentityClient {
 			throw error
 		}
 	}
-		
 }

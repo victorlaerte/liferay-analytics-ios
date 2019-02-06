@@ -22,18 +22,18 @@ import XCTest
 class IdentityClientTest: XCTestCase {
 	func testSendIdentityContext() {
 		do {
-            try Analytics.init()
-            let instance = try Analytics.getInstance()
+			try Analytics.init()
+			let instance = try Analytics.getInstance()
 			
 			let result = ["status": "success"]
 			stub(http(.post, uri: instance.endpointURL + "/identity"), json(result))
             
-            let identityContext = IdentityContext(dataSourceId: instance.dataSourceId) {
-                $0.language = "en-US"
-                $0.identity = Identity(name: "Joe Bloggs", email: "joe.blogs@liferay.com")
-            }
+			let identityContext = IdentityContext(dataSourceId: instance.dataSourceId) {
+				$0.language = "en-US"
+				$0.identity = Identity(name: "Joe Bloggs", email: "joe.blogs@liferay.com")
+			}
             
-            try _identityClient.send(endpointURL: instance.endpointURL, identityContext: identityContext)
+			try _identityClient.send(endpointURL: instance.endpointURL, identityContext: identityContext)
 		}
 		catch {
 			assertionFailure()

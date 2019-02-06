@@ -19,12 +19,12 @@ import Foundation
 */
 internal class AnalyticsClient {
         
-    func send(endpointURL: String, analyticsEvents: AnalyticsEvents)
+	func send(endpointURL: String, analyticsEvents: AnalyticsEvents)
 		throws -> String {
 		
-        guard let url = URL(string: endpointURL) else {
-            throw HttpError.invalidUrl
-        }
+		guard let url = URL(string: endpointURL) else {
+			throw HttpError.invalidUrl
+		}
             
 		let encoder = JSONEncoder()
 		encoder.dateEncodingStrategy = .iso8601

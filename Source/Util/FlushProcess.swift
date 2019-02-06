@@ -19,8 +19,8 @@ import Foundation
 */
 internal class FlushProcess {
 	
-    init(endpointURL: String, fileStorage: FileStorage, flushInterval: Int) {
-        self.endpointURL = endpointURL
+	init(endpointURL: String, fileStorage: FileStorage, flushInterval: Int) {
+		self.endpointURL = endpointURL
 		self.eventsDAO = EventsDAO(fileStorage: fileStorage)
 		self.userDAO = UserDAO(fileStorage: fileStorage)
 		self.flushInterval = flushInterval
@@ -128,7 +128,7 @@ internal class FlushProcess {
 				continue
 			}
 			
-            try identityContext.send(endpointURL: endpointURL, identityContext: userContext)
+			try identityContext.send(endpointURL: endpointURL, identityContext: userContext)
 			userDAO.replaceUserContexts(identities: userContexts)
 		}
 	}
@@ -136,7 +136,7 @@ internal class FlushProcess {
 	let FLUSH_SIZE = 100
 	
 	let analyticsClient = AnalyticsClient()
-    let endpointURL: String
+	let endpointURL: String
 	let eventsDAO: EventsDAO
 	var eventsQueue = [String: [Event]]()
 	let flushInterval: Int
