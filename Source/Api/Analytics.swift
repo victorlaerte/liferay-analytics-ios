@@ -102,7 +102,7 @@ public class Analytics {
 	*/
 	public class func setIdentity(email: String, name: String = "") {
 		let instance = try! Analytics.getInstance()
-		let identityContext = IdentityContext(dataSourceId: instance.dataSourceId)
+		let identityContext = getDefaultIdentityContext()
 		
 		let identity = Identity(name: name, email: email)
 		identityContext.identity = identity
@@ -125,7 +125,7 @@ public class Analytics {
 		instance.createEvent(eventId: eventId, applicationId: applicationId, properties: properties)
 	}
 	
-	func getDefaultIdentityContext() -> IdentityContext {
+	class func getDefaultIdentityContext() -> IdentityContext {
 		let instance = try! Analytics.getInstance()
 
 		return IdentityContext(dataSourceId: instance.dataSourceId) {
