@@ -74,7 +74,7 @@ internal class FlushProcess {
 		}
 	}
 	
-	func sendEventsForUserId(userId: String, events: [Event]) throws {
+	func send(events: [Event], for userId: String) throws {
 		let instance = try! Analytics.getInstance()
 		
 		var currentEvents = events
@@ -87,7 +87,8 @@ internal class FlushProcess {
 				$0.events = eventsToSend
 			}
 			
-			let _ = try analyticsClient.send(endpointURL: instance.endpointURL, analyticsEvents: analyticsEvents)
+			let _ = try analyticsClient.send(
+				endpointURL: instance.endpointURL, analyticsEvents: analyticsEvents)
 			
 			currentEvents = Array(currentEvents.dropFirst(FLUSH_SIZE))
 			eventsDAO.updateEvents(userId: userId, events: currentEvents)
@@ -101,7 +102,7 @@ internal class FlushProcess {
 			var userIdsEvents = eventsDAO.getEvents()
 			
 			for (userId, currentEvents) in userIdsEvents {
-				try sendEventsForUserId(userId: userId, events: currentEvents)
+				try send(events: currentEvents, for: userId)
 				
 				userIdsEvents.removeValue(forKey: userId)
 				eventsDAO.replaceEvents(events: userIdsEvents)
