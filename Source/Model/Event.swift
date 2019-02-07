@@ -21,7 +21,7 @@ internal class Event: Codable {
 	init(applicationId: String, eventId: String, build: ((Event) -> Void)? = nil) {
 		self.applicationId = applicationId
 		self.eventId = eventId
-		self.eventDate = DateUtil.formatDate(date: self.eventDate)
+		self.eventDate = Date.formatAsUTC(date: self.eventDate)
 		
 		build?(self)
     }
