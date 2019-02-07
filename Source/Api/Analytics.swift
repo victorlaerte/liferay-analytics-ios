@@ -78,7 +78,7 @@ public class Analytics {
 		var endpointURL: String = ""
 
 		if let stringURL = settings?["com.liferay.analytics.EndpointUrl"] {
-			if (!URLUtil.isValidUrl(value: stringURL)) {
+			guard let _ = URL(string: stringURL) else {
 				throw AnalyticsError.invalidEndpointURL
 			}
 
