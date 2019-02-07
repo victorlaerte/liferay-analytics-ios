@@ -17,11 +17,11 @@ import Foundation
 /**
 - Author: Marcelo Mello
 */
-internal class DateUtil {
-	static let DATE_FORMAT: String = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-	static let DATE_ABBREVIATION: String = "UTC"
-	
-	static func formatDate(date: Date) -> Date {
+extension Date {
+	static func formatAsUTC(date: Date) -> Date {
+		let DATE_FORMAT: String = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+		let DATE_ABBREVIATION: String = "UTC"
+		
 		let dateFormatter = DateFormatter()
 		dateFormatter.timeZone = TimeZone(abbreviation: DATE_ABBREVIATION)
 		dateFormatter.dateFormat = DATE_FORMAT

@@ -13,7 +13,6 @@
 		4A2CC8DD207EA1DC003A2B3C /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2CC8DC207EA1DC003A2B3C /* UserDAO.swift */; };
 		4A3359DB2056B99000BAB411 /* AnalyticsClientTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3359DA2056B99000BAB411 /* AnalyticsClientTest.swift */; };
 		4A3359DD2056B99000BAB411 /* libliferay-analytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A9AFF2320502E4800DC7258 /* libliferay-analytics.a */; };
-		4A33A730205179D80022628B /* AnalyticsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A72F205179D80022628B /* AnalyticsEvents.swift */; };
 		4A33A73320517D710022628B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A73220517D710022628B /* Event.swift */; };
 		4A35DD0C208118490088395E /* FlushProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A35DD0B208118490088395E /* FlushProcess.swift */; };
 		4A42D1AE20659C7300B1E1FA /* FileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A42D1AD20659C7300B1E1FA /* FileStorage.swift */; };
@@ -32,8 +31,9 @@
 		4AFDDF4E2099EE75007C4361 /* FlushProcessTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFDDF4D2099EE75007C4361 /* FlushProcessTest.swift */; };
 		4F953AD40A47A199ED227E1A /* Pods_liferay_analytics_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A439D8615016FF24A7EAA592 /* Pods_liferay_analytics_Tests.framework */; };
 		B21E27E82204941E004048DD /* URLUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E27E72204941E004048DD /* URLUtil.swift */; };
-		B21E2809220A2244004048DD /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21E2808220A2244004048DD /* DateUtil.swift */; };
 		B257BCCD220B479B00A1DCD6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B21E28032209EE1F004048DD /* Info.plist */; };
+		B25D02FA220C712F002D281D /* AnalyticsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A72F205179D80022628B /* AnalyticsEvents.swift */; };
+		B25D02FC220C9BFF002D281D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25D02FB220C9BFF002D281D /* Date.swift */; };
 		EE5746AEB4218285EBFB9314 /* Pods_liferay_analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A7AFBF434B735A098BF73E /* Pods_liferay_analytics.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,7 +92,7 @@
 		B21E27E72204941E004048DD /* URLUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLUtil.swift; sourceTree = "<group>"; };
 		B21E27F92209D6BC004048DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B21E28032209EE1F004048DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B21E2808220A2244004048DD /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		B25D02FB220C9BFF002D281D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		C41AAEAA92A620B52C495371 /* Pods-liferay-analytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liferay-analytics.release.xcconfig"; path = "Pods/Target Support Files/Pods-liferay-analytics/Pods-liferay-analytics.release.xcconfig"; sourceTree = "<group>"; };
 		FB87EAC3C7F6B66F43938ECB /* Pods-liferay-analytics-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liferay-analytics-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-liferay-analytics-Tests/Pods-liferay-analytics-Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				4A95E70C205327CC00F25FC7 /* URLSession.swift */,
+				B25D02FB220C9BFF002D281D /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -271,7 +272,6 @@
 				4A42D1AD20659C7300B1E1FA /* FileStorage.swift */,
 				4A35DD0B208118490088395E /* FlushProcess.swift */,
 				B21E27E72204941E004048DD /* URLUtil.swift */,
-				B21E2808220A2244004048DD /* DateUtil.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -496,11 +496,11 @@
 				4A95E70D205327CC00F25FC7 /* URLSession.swift in Sources */,
 				4A42D1AE20659C7300B1E1FA /* FileStorage.swift in Sources */,
 				4A35DD0C208118490088395E /* FlushProcess.swift in Sources */,
+				B25D02FC220C9BFF002D281D /* Date.swift in Sources */,
 				4AF876E92061722800B8BBE1 /* HttpError.swift in Sources */,
 				4AC6339D20581423005BBE45 /* IdentityClient.swift in Sources */,
-				B21E2809220A2244004048DD /* DateUtil.swift in Sources */,
 				4A0AC85F205BFA9900806B62 /* Analytics.swift in Sources */,
-				4A33A730205179D80022628B /* AnalyticsEvents.swift in Sources */,
+				B25D02FA220C712F002D281D /* AnalyticsEvents.swift in Sources */,
 				4A2CC8DD207EA1DC003A2B3C /* UserDAO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
