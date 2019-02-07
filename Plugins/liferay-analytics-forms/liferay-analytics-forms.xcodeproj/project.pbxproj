@@ -93,7 +93,6 @@
 			isa = PBXGroup;
 			children = (
 				4ADD8B30206D2D3200A5D0B1 /* Source */,
-				4AF4AECE206BCB640070EBB1 /* liferay-analytics-forms.h */,
 				4AF4AECC206BCB640070EBB1 /* Products */,
 				C6B3BE480FF67D45007E2AC0 /* Pods */,
 				2B4508B08FA28E79FBEC843E /* Frameworks */,
@@ -111,6 +110,7 @@
 		B25D02F7220B62C3002D281D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4AF4AECE206BCB640070EBB1 /* liferay-analytics-forms.h */,
 				B25D02F8220B62D5002D281D /* Info.plist */,
 			);
 			path = Resources;
