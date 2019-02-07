@@ -58,7 +58,7 @@ public class Analytics {
 	*/
 	public class func `init`(flushInterval: Int = Analytics.DEFAUL_TIME_INTERVAL) throws {
         
-		if let _ = instance {
+		if let _ = sharedInstance {
 			throw AnalyticsError.analyticsAlreadyInitialized
 		}
         
@@ -89,7 +89,7 @@ public class Analytics {
 			throw AnalyticsError.invalidFlushIntervalValue
 		}
         
-		instance = Analytics(endpointURL: endpointURL, dataSourceId: dataSourceId,
+		sharedInstance = Analytics(endpointURL: endpointURL, dataSourceId: dataSourceId,
                                    fileStorage: fileStorage, flushInterval: flushInterval)
 	}
 	
@@ -138,7 +138,7 @@ public class Analytics {
 	}
 	
 	class func getInstance() throws -> Analytics {
-		guard let instance = Analytics.instance else {
+		guard let instance = Analytics.sharedInstance else {
 			throw AnalyticsError.analyticsNotInitialized
 		}
 		
@@ -155,7 +155,7 @@ public class Analytics {
 		flushProcess.addEvent(event: event)
 	}
 	
-	internal static var instance: Analytics?
+	internal static var sharedInstance: Analytics?
 	
 	internal let endpointURL: String
 	internal let dataSourceId: String
