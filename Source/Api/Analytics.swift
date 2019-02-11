@@ -61,7 +61,7 @@ public class Analytics {
 		if let _ = sharedInstance {
 			throw AnalyticsError.analyticsAlreadyInitialized
 		}
-        
+
 		let fileStorage = try FileStorage()
 
 		let bundle = Bundle(for: self)
@@ -75,14 +75,10 @@ public class Analytics {
 			throw AnalyticsError.dataSourceIdNullOrEmpty
 		}
 
-		var endpointURL: String = ""
-
-		if let stringURL = settings?["com.liferay.analytics.EndpointUrl"] {
-			guard let _ = URL(string: stringURL) else {
-				throw AnalyticsError.invalidEndpointURL
-			}
-
-			endpointURL = stringURL
+		guard let endpointURL = settings?["com.liferay.analytics.EndpointUrl"],
+			let _ = URL(string: endpointURL) else {
+				
+			throw AnalyticsError.invalidEndpointURL
 		}
 
 		if (flushInterval <= 0) {

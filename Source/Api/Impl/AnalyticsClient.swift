@@ -31,7 +31,7 @@ internal class AnalyticsClient {
 		let analyticsData = try encoder.encode(analyticsEvents)
 		
 		let (data, _, error) = URLSession.sendPost(url: url, body: analyticsData)
-            
+
 		if let error = error {
 			throw error
 		}
