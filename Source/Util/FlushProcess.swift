@@ -82,7 +82,7 @@ internal class FlushProcess {
 			let eventsToSend = Array(currentEvents.prefix(FLUSH_SIZE))
 			
 			let analyticsEvents = AnalyticsEvents(
-			dataSourceId: instance.dataSourceId, userId: userId) {
+				dataSourceId: instance.dataSourceId, userId: userId) {
 				
 				$0.events = eventsToSend
 			}

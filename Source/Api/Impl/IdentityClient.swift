@@ -25,7 +25,7 @@ class IdentityClient {
 		guard let url = URL(string: endpointURL) else {
 			throw HttpError.invalidUrl
 		}
-        
+
 		let encoder = JSONEncoder()
 		let identityContextData = try encoder.encode(identityContext)
 			
