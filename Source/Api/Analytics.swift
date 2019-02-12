@@ -63,19 +63,18 @@ public class Analytics {
 		}
 
 		let fileStorage = try FileStorage()
-
-		let bundle = Bundle(for: self)
-		var settings: [String: String]?
-
-		if let path = bundle.path(forResource: "Info", ofType:"plist") {
-			settings = NSDictionary(contentsOfFile: path) as? [String: String]
+		
+		var settings: [String: AnyObject]?
+		
+		if let path = Bundle.main.path(forResource: "Info", ofType:"plist") {
+			settings = NSDictionary(contentsOfFile: path) as? [String: AnyObject]
 		}
 
-		guard let dataSourceId = settings?["com.liferay.analytics.DataSourceId"] else {
+		guard let dataSourceId = settings?["com.liferay.analytics.DataSourceId"] as? String else {
 			throw AnalyticsError.dataSourceIdNullOrEmpty
 		}
 
-		guard let endpointURL = settings?["com.liferay.analytics.EndpointUrl"],
+		guard let endpointURL = settings?["com.liferay.analytics.EndpointUrl"] as? String,
 			let _ = URL(string: endpointURL) else {
 				
 			throw AnalyticsError.invalidEndpointURL
