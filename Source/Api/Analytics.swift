@@ -124,8 +124,6 @@ public class Analytics {
 		let instance = try! Analytics.getInstance()
 
 		return IdentityContext(dataSourceId: instance.dataSourceId) {
-			$0.platform = "iOS"
-			
 			if let language = Locale.preferredLanguages.first {
 				$0.language = language
 			}

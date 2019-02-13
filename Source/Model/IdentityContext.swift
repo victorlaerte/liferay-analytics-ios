@@ -22,6 +22,7 @@ internal class IdentityContext: Codable {
 	init(dataSourceId: String, build: ((IdentityContext) -> ())? = nil) {
 		self.dataSourceId = dataSourceId
 		self.userId = IdentityContext.createUserId()
+		self.platform = "iOS"
 		
 		build?(self)
 	}
@@ -36,7 +37,7 @@ internal class IdentityContext: Codable {
 	let dataSourceId: String
 	var identity: Identity?
 	var language: String?
-	var platform: String?
+	let platform: String
 	var timezone: String?
 	let userId: String
 }
