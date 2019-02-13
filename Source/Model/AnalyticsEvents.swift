@@ -25,7 +25,7 @@ internal class AnalyticsEvents: Codable {
 	}
 
 	let dataSourceId: String
-	var context = [String: String]()
+	var context = AnalyticsContext()
 	var events = [Event]()
 	var protocolVersion: String?
 	let userId: String

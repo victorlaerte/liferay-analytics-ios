@@ -30,9 +30,9 @@
 		4AF876E92061722800B8BBE1 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF876E82061722800B8BBE1 /* HttpError.swift */; };
 		4AFDDF4E2099EE75007C4361 /* FlushProcessTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFDDF4D2099EE75007C4361 /* FlushProcessTest.swift */; };
 		4F953AD40A47A199ED227E1A /* Pods_liferay_analytics_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A439D8615016FF24A7EAA592 /* Pods_liferay_analytics_Tests.framework */; };
-		B2515B49220DCB6D00B5FDC8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B21E28032209EE1F004048DD /* Info.plist */; };
 		B25D02FA220C712F002D281D /* AnalyticsEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33A72F205179D80022628B /* AnalyticsEvents.swift */; };
 		B25D02FC220C9BFF002D281D /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25D02FB220C9BFF002D281D /* Date.swift */; };
+		B28D3FF822131713006BA46A /* AnalyticsContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28D3FF722131713006BA46A /* AnalyticsContext.swift */; };
 		EE5746AEB4218285EBFB9314 /* Pods_liferay_analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55A7AFBF434B735A098BF73E /* Pods_liferay_analytics.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +90,7 @@
 		A439D8615016FF24A7EAA592 /* Pods_liferay_analytics_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_liferay_analytics_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B21E28032209EE1F004048DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B25D02FB220C9BFF002D281D /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		B28D3FF722131713006BA46A /* AnalyticsContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsContext.swift; sourceTree = "<group>"; };
 		C41AAEAA92A620B52C495371 /* Pods-liferay-analytics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liferay-analytics.release.xcconfig"; path = "Pods/Target Support Files/Pods-liferay-analytics/Pods-liferay-analytics.release.xcconfig"; sourceTree = "<group>"; };
 		FB87EAC3C7F6B66F43938ECB /* Pods-liferay-analytics-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-liferay-analytics-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-liferay-analytics-Tests/Pods-liferay-analytics-Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +164,7 @@
 				4A33A73220517D710022628B /* Event.swift */,
 				4AC6339A205806FD005BBE45 /* IdentityContext.swift */,
 				4A82A1A220A9C27500057DCE /* Identity.swift */,
+				B28D3FF722131713006BA46A /* AnalyticsContext.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,7 +386,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2515B49220DCB6D00B5FDC8 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +490,7 @@
 				4A95E70A205316B700F25FC7 /* AnalyticsClient.swift in Sources */,
 				4A95E70D205327CC00F25FC7 /* URLSession.swift in Sources */,
 				4A42D1AE20659C7300B1E1FA /* FileStorage.swift in Sources */,
+				B28D3FF822131713006BA46A /* AnalyticsContext.swift in Sources */,
 				4A35DD0C208118490088395E /* FlushProcess.swift in Sources */,
 				B25D02FC220C9BFF002D281D /* Date.swift in Sources */,
 				4AF876E92061722800B8BBE1 /* HttpError.swift in Sources */,
@@ -516,7 +518,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7H3SPU5TB9;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = Tests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -533,7 +535,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7H3SPU5TB9;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = Tests/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.liferay.Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
