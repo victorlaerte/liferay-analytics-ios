@@ -53,7 +53,7 @@ internal class FlushProcess {
 
 	func getUserId() -> String {
 		guard let userId = userDAO.getUserId(), !userId.isEmpty else {
-			let identityContext = Analytics.getDefaultIdentityContext()
+			let identityContext = try! Analytics.getInstance().getDefaultIdentityContext()
 			
 			userDAO.addUserContext(identity: identityContext)
 			userDAO.setUserId(userId: identityContext.userId)

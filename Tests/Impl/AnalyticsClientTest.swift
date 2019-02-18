@@ -35,8 +35,6 @@ class AnalyticsClientTest: XCTestCase {
             
 			let analyticsEvents = AnalyticsEvents(
 				dataSourceId: instance.dataSourceId, userId: _userId) {
-					$0.context.updateValue("pt_PT", forKey: "languageId")
-
 					let eventView =
 						Event(applicationId: "ApplicationId", eventId: "View") {
 							$0.properties.updateValue("banner1", forKey: "elementId")

@@ -66,7 +66,13 @@ public class Analytics {
 		
 		var settings: [String: AnyObject]?
 		
-		if let path = Bundle.main.path(forResource: "Info", ofType:"plist") {
+		#if DEBUG
+			let bundle = Bundle(for: self)
+		#else
+		    let bundle = Bundle.main
+		#endif
+		
+		if let path = bundle.path(forResource: "Info", ofType:"plist") {
 			settings = NSDictionary(contentsOfFile: path) as? [String: AnyObject]
 		}
 
@@ -97,7 +103,7 @@ public class Analytics {
 	*/
 	public class func setIdentity(email: String, name: String = "") {
 		let instance = try! Analytics.getInstance()
-		let identityContext = getDefaultIdentityContext()
+		let identityContext = instance.getDefaultIdentityContext()
 		
 		let identity = Identity(name: name, email: email)
 		identityContext.identity = identity
@@ -120,7 +126,7 @@ public class Analytics {
 		instance.createEvent(eventId: eventId, applicationId: applicationId, properties: properties)
 	}
 	
-	class func getDefaultIdentityContext() -> IdentityContext {
+	func getDefaultIdentityContext() -> IdentityContext {
 		let instance = try! Analytics.getInstance()
 
 		return IdentityContext(dataSourceId: instance.dataSourceId) {

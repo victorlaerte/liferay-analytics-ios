@@ -26,7 +26,7 @@ internal class Event: Codable {
     }
 
     let applicationId: String
-	let eventDate = Date.formatAsUTC(date: Date())
+	let eventDate = Date().formatAsUTC()
     var eventId: String
     var properties = [String: String]()
 }

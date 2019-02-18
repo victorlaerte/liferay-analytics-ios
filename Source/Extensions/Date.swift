@@ -18,7 +18,7 @@ import Foundation
 - Author: Marcelo Mello
 */
 extension Date {
-	static func formatAsUTC(date: Date) -> Date {
+	func formatAsUTC() -> Date {
 		let DATE_FORMAT: String = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 		let DATE_ABBREVIATION: String = "UTC"
 		
@@ -26,6 +26,6 @@ extension Date {
 		dateFormatter.timeZone = TimeZone(abbreviation: DATE_ABBREVIATION)
 		dateFormatter.dateFormat = DATE_FORMAT
 		
-		return dateFormatter.date(from: dateFormatter.string(from: date)) ?? date
+		return dateFormatter.date(from: dateFormatter.string(from: self)) ?? self
 	}
 }
